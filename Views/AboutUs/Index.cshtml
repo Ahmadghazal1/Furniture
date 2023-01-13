@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Furniture.Models.AboutU>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <iframe src="/Home/AboutUs" height="900" width="1100" title="Iframe Example"></iframe>
+         <a asp-action="Edit" asp-route-id="@Model.FirstOrDefault().Id" class="btn btn-primary">Edit Page</a> 
+    
+ </div>
+         
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pargraph1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pargraph2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pargraph3)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+*@

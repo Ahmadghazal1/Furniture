@@ -1,0 +1,72 @@
+﻿@model Furniture.Models.ViewModel.DataVM
+@{
+    ViewData["Title"] = "AboutUs";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<html>
+
+<head>
+    <link href="~/device-data/about.css" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="site-section" style="margin-top:120px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <img src=@Url.Content("~/image/" + Model.AboutUs.SingleOrDefault().Image) alt="" asp-append-version="true" width="500" height="500" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-lg-6">
+          <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto">
+          <h2 class="mb-5">@Model.AboutUs.SingleOrDefault().Pargraph1</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, fugit nam obcaecati fuga itaque deserunt
+            officia, error reiciendis ab quod?</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="site-section">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+      <div class="row">
+        <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto">
+          <h2 class="mb-5">@Model.AboutUs.SingleOrDefault().Pargraph2</h2>
+          <p>
+              @Model.AboutUs.SingleOrDefault().Pargraph3
+          </p>
+        </div>
+      </div>
+      <div class="row">
+          @foreach(var item in Model.userAccounts){
+        <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+          <div class="team-member">
+                <img src=@Url.Content("~/image/"+ item.ImagePath) alt="new-arrivals images"  asp-append-version="true"  style="width:350px;height:300px" class="img-fluid">
+
+
+            <div class="text">
+
+              <h2 class="mb-2 font-weight-light h4">@item.Fullname</h2>
+              <span class="d-block mb-2 text-white-opacity-05">Co Founder</span>
+              <p class="mb-4" style="color:white;">Lorem ipsum dolor sit amet consectetur adipisicing elit ullam reprehenderit nemo.</p>
+              <p>
+                    <a href="#" class="text-white p-2"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white p-2"><span class="icon-twitter"></span></a>
+                <a href="#" class="text-white p-2"><span class="icon-linkedin"></span></a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+          }
+
+      </div>
+    </div>
+  </div>
+</body>
+
+
+  </html>

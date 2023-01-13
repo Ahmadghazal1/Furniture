@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Furniture.Models.UserAccount>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegisterdUser</title>
+</head>
+<body>
+<p>
+
+</p>
+
+<div class="container">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Registerd Users</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table  class="display nowrap" id="example">
+                                        <thead>
+                                            <tr>
+                                             <th>
+                                    @Html.DisplayNameFor(model => model.Fullname)
+            </th>
+            <th>
+                                    @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                                    @Html.DisplayNameFor(model => model.ImagePath)
+            </th>
+            <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+            </th>
+           
+            <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                    <tr>
+                        <td>
+                                        @Html.DisplayFor(modelItem => item.Fullname)
+                        </td>
+                        <td>
+                                        @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                                       <img src=@Url.Content("~/image/" + item.ImagePath)
+                        asp-append-version="true" style="border-radius:20%;" width="100" height="100" />
+                        </td>
+                        <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                    
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+        @*<a asp-action="Create" class="btn btn-primary">Create New</a>*@
+
+                        </div>
+</body>
+</html>
+
+
+@*---------------------------------------------------------------------------------------------*@
+
+

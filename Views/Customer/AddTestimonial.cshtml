@@ -1,0 +1,71 @@
+﻿@model Furniture.Models.Testimonial
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    var image = ViewBag.imagePath;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddTestimonial</title>
+    <link href="~/device-data/animation/stylesheet.css" rel="stylesheet" />
+    
+</head>
+<body>
+                        <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+
+    
+                <section>
+@*    <p id="text">Give us your comment now .. </p>
+*@  <div class="container my-5 py-5 text-dark">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-6">
+        <div class="card">
+          <div class="card-body p-4">
+            <div class="d-flex flex-start w-100">
+          <img class="rounded-circle shadow-1-strong me-3"
+                src=@Url.Content("~/image/" + image) alt="" asp-append-version="true"  alt="avatar" width="65"
+                height="65" /><br>
+              <div class="w-100">
+                <h5>Add a comment</h5>
+                <ul class="rating mb-3" data-mdb-toggle="rating">
+                  <li>
+                    <i class="bi bi-star-fill star-primary"></i>
+                    <i class="bi bi-star-fill star-primary"></i>
+                    <i class="bi bi-star-fill star-primary"></i>
+                    <i class="bi bi-star-fill star-primary"></i>
+                  </li>
+                </ul>
+                 <form asp-action="AddTestimonial">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Message" class="control-label"></label>
+                <input asp-for="Message" class="form-control" />
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                       <input type="submit" value="Send" class="btn btn-primary" /> 
+
+            </div>
+        </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    @section Scripts {
+            <script src="~/device-data/animation/javascript.js"></script>
+}
+
+</body>
+</html>
+

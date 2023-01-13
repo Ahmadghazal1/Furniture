@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Furniture.Models.Testimonial>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowTestimonial</title>
+</head>
+<body>
+    <div class="container" style="margin-top:50px;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Table Striped</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                               <th>
+                                    @Html.DisplayNameFor(model => model.Message)
+            </th>
+
+            <th>
+                                    @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                <tr>
+                    <td>
+                                        @Html.DisplayFor(modelItem => item.Message)
+                    </td>
+
+                    <td>
+                                        @Html.DisplayFor(modelItem => item.User.Fullname)
+                    </td>
+                    <td>
+                            <a asp-action="Index" asp-controller="Home" asp-route-id="@item.Id">Accept</a> |
+                            <a asp-action="DeleteTestimonial" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</body>
+</html>
+
+
+                  

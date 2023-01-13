@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Furniture.Models.Payment>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var total = Model.Sum(x => x.Amount);
+    var q = Model.Count();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+</head>
+<body>
+    <div class="container" style="margin-top:40px">
+    <div class="row">
+        <div class="col-6">
+<form asp-action="Search" method="post">
+
+    <input type="date" class="form-control"  name="startDate" placeholder="Start Date"/>
+
+    <input type="date" class="form-control"  name="endDate" placeholder="End Date"/>
+
+    <input type="submit" value="search" class="btn btn-primary" />
+
+</form>
+        </div>
+    </div>
+
+
+                      <div class="container" style="margin-top:40px;">
+                                    <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Sales Report</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table  class="display nowrap" id="example">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                        @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                                        @Html.DisplayNameFor(model => model.PayDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=>model.User.Fullname)
+            </th>
+         
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                @foreach (var item in Model)
+                                {
+                <tr>
+                    <td>
+                                            @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(model=> item.PayDate);
+                    </td>
+                        <td>
+                                            @Html.DisplayFor(model=> item.User.Fullname)
+                        </td>
+                 
+                </tr>
+                                }
+                                        </tbody>
+                                        <tfoot>
+                                                <tr>
+                                                    <td>Total Price : @total</td>
+                                                  
+                                                </tr>
+                                                <tr>
+                                                      <td>Quantity : @q</td>
+                                                </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+    </div>
+</body>
+</html>

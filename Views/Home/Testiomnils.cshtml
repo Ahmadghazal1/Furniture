@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Furniture.Models.Testimonial>
+
+@{
+    ViewData["Title"] = "Testiomnils";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+    <section style="color: #000;margin-top:120px;"  id="new-arrivals" class="new-arrivals" data-aos="fade-right" >
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 col-xl-8 text-center">
+              <div class="section-header">
+                  <a asp-action="Testimonials">
+                    <h2>Happy Clintes</h2>
+
+                  </a>
+
+                        </div>
+
+      </div>
+    </div>
+
+    <div class="row text-center" style="margin-top:40px; margin-bottom:30px;">
+            @foreach (var item in Model)
+            {
+                 <div class="col-md-4 mb-4 mb-md-0">
+            <div class="card">
+              <div class="card-body py-4 mt-2">
+                <div class="d-flex justify-content-center mb-4">
+
+                            <img src=@Url.Content("~/image/"+ item.User.ImagePath) class="rounded-circle" asp-append-version="true"  width="100" height="100">
+                </div>
+                <h5 class="font-weight-bold">@item.User.Fullname</h5>
+                <h6 class="font-weight-bold my-3">Customer</h6>
+                <ul class="list-unstyled d-flex justify-content-center">
+                  <li>
+                           <i class="fa-solid fa-star" style="color:#7571f9"></i>
+                  </li>
+                  <li>
+                           <i class="fa-solid fa-star" style="color:#7571f9"></i>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-star" style="color:#7571f9"></i>
+                  </li>
+                  <li>
+                          <i class="fa-solid fa-star" style="color:#7571f9"></i>
+                  </li>
+                  <li>
+                      <i class="fa-solid fa-star" style="color:#7571f9"></i>
+                  </li>
+                </ul>
+                <p class="mb-2">
+                  <i class="fas fa-quote-left pe-2"></i>
+                                @item.Message
+                </p>
+              </div>
+            </div>
+          </div>
+            }
+
+
+
+    </div>
+
+</div>
+</section>

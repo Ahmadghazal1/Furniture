@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Furniture.Models.ContactU>
+
+@{
+    ViewData["Title"] = "Emails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+            <div class="container" style="margin-top:50px;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Guest User </h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                               <th>
+                                @Html.DisplayNameFor(model => model.Namee)
+            </th>
+
+            <th>
+                                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                        @foreach (var item in Model)
+                        {
+                    <tr>
+                            <td>
+                                    @Html.DisplayFor(modelItem => item.Namee)
+                </td>
+                <td>
+                                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                        <td>
+                                
+                                    <a href="mailto:@item.Email">Send Email</a>
+                                
+                        </td>
+                    </tr>
+                        }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
